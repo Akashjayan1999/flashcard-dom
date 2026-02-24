@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlipLearn — Flashcard Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">Flip<span>Learn</span></div>
+  <div class="tagline">Flashcard Studio</div>
+</header>
+
+<!-- Setup Screen -->
+<div class="screen active" id="setupScreen">
+  <h1 class="setup-title">Learn by <em>flipping</em><br>flashcards</h1>
+  <p class="setup-subtitle">Pick a topic &amp; start your session</p>
+
+  <div class="section-label">Choose Topic</div>
+  <div class="topic-grid" id="topicGrid"></div>
+
+  <div class="section-label">Number of Cards</div>
+  <div class="count-row">
+    <button class="count-btn" data-count="5">5</button>
+    <button class="count-btn selected" data-count="10">10</button>
+    <button class="count-btn" data-count="15">15</button>
+    <button class="count-btn" data-count="20">20</button>
+  </div>
+
+  <button class="start-btn" id="startBtn" disabled>Start Session →</button>
+</div>
+
+<!-- Quiz Screen -->
+<div class="screen" id="quizScreen">
+  <div class="quiz-header">
+    <div class="quiz-meta">Card <strong id="cardNum">1</strong> of <strong id="cardTotal">10</strong></div>
+    <div class="score-badge">
+      <span class="c">✓ <span id="correctCount">0</span></span>
+      <span class="w">✗ <span id="wrongCount">0</span></span>
+    </div>
+  </div>
+
+  <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+
+  <p class="flip-hint" id="flipHint">↕ Click the card to reveal answer</p>
+
+  <div class="flashcard-scene" id="flashcardScene">
+    <div class="flashcard" id="flashcard">
+      <div class="card-face card-front">
+        <span class="card-tag">Question</span>
+        <span class="card-hint-icon">tap to flip</span>
+        <p class="card-question" id="cardQuestion"></p>
+      </div>
+      <div class="card-face card-back">
+        <span class="card-tag">Answer</span>
+        <p class="card-answer" id="cardAnswer"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-row" id="actionRow">
+    <button class="action-btn btn-correct" id="btnCorrect">✓ Got It</button>
+    <button class="action-btn btn-wrong" id="btnWrong">✗ Missed</button>
+  </div>
+</div>
+
+<!-- Results Screen -->
+<div class="screen" id="resultsScreen">
+  <div class="results-circle" id="resultsCircle">
+    <div class="results-score">
+      <div class="num" id="resultNum">0</div>
+      <div class="denom" id="resultDenom">/ 10</div>
+    </div>
+  </div>
+  <h2 class="results-title" id="resultTitle">Great work!</h2>
+  <p class="results-msg" id="resultMsg"></p>
+  <div class="results-breakdown">
+    <div class="breakdown-item correct">
+      <div class="val" id="breakCorrect">0</div>
+      <div class="lbl">Correct</div>
+    </div>
+    <div class="breakdown-item wrong">
+      <div class="val" id="breakWrong">0</div>
+      <div class="lbl">Missed</div>
+    </div>
+    <div class="breakdown-item pct">
+      <div class="val" id="breakPct">0%</div>
+      <div class="lbl">Score</div>
+    </div>
+  </div>
+  <div class="results-actions">
+    <button class="btn-retry" id="btnRetry">Retry Same Topic</button>
+    <button class="btn-home" id="btnHome">New Topic</button>
+  </div>
+</div>
+
+<script src="./js/index.js"/>
+</body>
+</html>
