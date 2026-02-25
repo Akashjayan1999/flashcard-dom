@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CineScope — Movie Explorer</title>
+<link rel="stylesheet" href="./style.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <span class="logo-main">Cine</span>
+    <span class="logo-dot">●</span>
+    <span class="logo-main">Scope</span>
+    <span class="logo-sub">Movie Explorer</span>
+  </div>
+  <div class="header-right">
+    <div class="sort-toggle" id="sortToggle" title="Sort by rating">
+      <span class="sort-icon">↓</span>
+      <span>Sort by Rating</span>
+    </div>
+  </div>
+</header>
+
+<!-- Hero + Controls -->
+<section class="hero">
+  <div class="hero-eyebrow">🎬 Discover Cinema</div>
+  <h1 class="hero-title">
+    Find Your<br>
+    <span class="outline">Next Watch</span>
+  </h1>
+  <p class="hero-subtitle">Browse top movies by genre, powered by real-time data from The Movie Database.</p>
+
+  <div class="controls">
+    <div class="control-group">
+      <label class="control-label" for="genreSelect">Genre</label>
+      <select class="genre-select" id="genreSelect">
+        <option value="28">Action</option>
+        <option value="12">Adventure</option>
+        <option value="16">Animation</option>
+        <option value="35">Comedy</option>
+        <option value="80">Crime</option>
+        <option value="99">Documentary</option>
+        <option value="18">Drama</option>
+        <option value="10751">Family</option>
+        <option value="14">Fantasy</option>
+        <option value="36">History</option>
+        <option value="27">Horror</option>
+        <option value="10402">Music</option>
+        <option value="9648">Mystery</option>
+        <option value="10749">Romance</option>
+        <option value="878">Sci-Fi</option>
+        <option value="53">Thriller</option>
+        <option value="10752">War</option>
+        <option value="37">Western</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="countInput">Movies to show</label>
+      <input type="number" class="count-input" id="countInput" min="4" max="40" value="12" placeholder="12">
+    </div>
+
+    <div class="control-group" style="justify-content: flex-end">
+      <div style="height:28px"></div>
+      <button class="fetch-btn" id="fetchBtn">
+        <span>🎬</span> Explore Movies
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- API Key Section (shown when needed) -->
+<div id="apikeySection" style="display:none; padding: 0 40px 40px;">
+  <div class="apikey-box">
+    <h3>TMDB API Key Required</h3>
+    <p>
+      This app uses the <a href="https://www.themoviedb.org/signup" target="_blank">TMDB API</a>.
+      Get a free API key at <a href="https://www.themoviedb.org/settings/api" target="_blank">themoviedb.org/settings/api</a>,
+      then paste it below.
+    </p>
+    <div class="apikey-row">
+      <input class="apikey-input" type="text" id="apikeyInput" placeholder="Paste your TMDB API key (v3 auth)" />
+      <button class="apikey-btn" id="apikeyBtn">Save & Load</button>
+    </div>
+  </div>
+</div>
+
+<!-- Results Bar -->
+<div class="results-bar" id="resultsBar" style="display:none;">
+  <div class="results-info" id="resultsInfo"></div>
+  <div class="api-note">Powered by TMDB</div>
+</div>
+
+<!-- Main Content -->
+<div id="mainContent"></div>
+<script src="./js/index.js"></script>
+
+</body>
+</html>
