@@ -11,7 +11,7 @@ const GENRE_NAMES = {
 };
 
 // ── State ──
-let apiKey = localStorage.getItem(STORAGE_KEY) || 'c0f898b8aa836a54eb43b4f11d229b3a';
+let apiKey = localStorage.getItem(STORAGE_KEY) || '';
 let allMovies = [];
 let sortedDesc = false;
 let currentGenre = '';
